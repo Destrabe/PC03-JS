@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Aprender React",
+      "description": "Hooks y Router",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "title": "Preparar entrevista",
+      "description": "Practicar casos",
+      "status": "done"
+    }
+  ]
+}
