@@ -8,3 +8,8 @@ body {
   background: #f4f6f9;
   color: #1f2d3d;
 }
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
