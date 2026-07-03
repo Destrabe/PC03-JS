@@ -46,16 +46,16 @@
 .form-group textarea:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #4fd1c5;
+  border-color: #6bbcb4;
   box-shadow: 0 0 0 2px rgba(79, 209, 197, 0.25);
 }
 
 .input-error {
-  border-color: #f87171 !important;
+  border-color: #b45f5f !important;
 }
 
 .field-error {
-  color: #b91c1c;
+  color: #d16363;
   font-size: 0.8rem;
 }
 

@@ -25,11 +25,11 @@ db.json              -> datos simulados para json-server (colección "tasks")
 - Node.js 18+
 - npm
 
-## Instalación
+## Instalación (Contar con Node JS, si no no corre :V)
 
 npm install
 
-## Ejecutar el proyecto (API simulada + frontend)
+## Ejecutar el proyecto 
 
 Este comando levanta json-server (puerto 3001) y Vite (puerto 5173) al mismo tiempo:
 
@@ -41,7 +41,7 @@ npm run server   # json-server --watch db.json --port 3001
 npm run dev      # vite (http://localhost:5173)
 
 
-## Rutas de la aplicación
+## Rutas de la aplicación (ENDPOINTSSS)
 
 | Ruta          | Componente  | Descripción                          |
 |---------------|-------------|---------------------------------------|
