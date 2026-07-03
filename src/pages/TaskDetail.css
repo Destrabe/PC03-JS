@@ -1,0 +1,104 @@
+.task-detail {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.task-detail h1 {
+  color: #1f2d3d;
+  margin-bottom: 1.25rem;
+}
+
+.detail-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e5e9ef;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #718096;
+}
+
+.detail-value {
+  font-size: 1rem;
+  color: #1f2d3d;
+}
+
+.badge {
+  width: fit-content;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-done {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.badge-pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  transition: filter 0.15s ease;
+}
+
+.btn:hover {
+  filter: brightness(0.92);
+}
+
+.btn-edit {
+  background: #4fd1c5;
+  color: #0b3d3a;
+}
+
+.btn-back {
+  background: #e2e8f0;
+  color: #1f2d3d;
+}
+
+.info-message {
+  padding: 2rem;
+  color: #4a5568;
+}
+
+.error-message {
+  margin: 2rem auto;
+  max-width: 700px;
+  color: #b91c1c;
+  background: #fee2e2;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+}

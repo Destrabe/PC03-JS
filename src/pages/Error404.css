@@ -1,0 +1,27 @@
+.error-404 {
+  max-width: 500px;
+  margin: 4rem auto;
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-404 h1 {
+  font-size: 4rem;
+  color: #1f2d3d;
+  margin-bottom: 0.5rem;
+}
+
+.error-404 p {
+  color: #718096;
+  margin-bottom: 1.5rem;
+}
+
+.btn-home {
+  display: inline-block;
+  background: #4fd1c5;
+  color: #0b3d3a;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+}

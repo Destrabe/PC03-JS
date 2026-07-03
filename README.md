@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Gestor de Tareas — React + TypeScript + json-server
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Estructura 
 
-## Available Scripts
+src/
+  models/
+    Task.ts          -> interfaz Task y TaskInput
+  services/
+    taskService.ts    -> getTasks, getTaskById, createTask, updateTask, deleteTask (axios)
+  components/
+    Menu.tsx / .css   -> navegación, incrustado en App.tsx
+    TaskList.tsx / .css -> tabla de tareas (listado), usada en Home
+  pages/
+    Home.tsx / .css      -> ruta "/" y "/home"
+    TaskDetail.tsx / .css -> ruta "/tasks/:id"
+    TaskForm.tsx / .css   -> rutas "/create" y "/edit/:id"
+    Error404.tsx / .css   -> ruta comodín "*"
+  App.tsx / .css     -> configuración de rutas (React Router v7) + Menu
+  main.tsx           -> entry point
+db.json              -> datos simulados para json-server (colección "tasks")
 
-In the project directory, you can run:
 
-### `npm start`
+## Requisitos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js 18+
+- npm
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instalación
 
-### `npm test`
+npm install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Ejecutar el proyecto (API simulada + frontend)
 
-### `npm run build`
+Este comando levanta json-server (puerto 3001) y Vite (puerto 5173) al mismo tiempo:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+O por separado, en dos terminales:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm run server   # json-server --watch db.json --port 3001
+npm run dev      # vite (http://localhost:5173)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Rutas de la aplicación
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Ruta          | Componente  | Descripción                          |
+|---------------|-------------|---------------------------------------|
+| `/`, `/home`  | Home        | Listado de tareas                     |
+| `/tasks/:id`  | TaskDetail  | Detalle de una tarea                  |
+| `/create`     | TaskForm    | Crear nueva tarea                     |
+| `/edit/:id`   | TaskForm    | Editar tarea existente                |
+| `*`           | Error404    | Cualquier ruta no reconocida          |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Endpoint de la API en local
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`http://localhost:3001/tasks` (GET, GET/:id, POST, PUT/:id, DELETE/:id)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Para completar las evidencias que piden las consideraciones del enunciado, ejecuta
+`npm start`, abre `http://localhost:5173` y toma capturas de:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Listado con tareas (`/`) y listado vacío (elimina todas las tareas temporalmente o
+   vacía el arreglo `tasks` en `db.json` y reinicia json-server).
+2. Cada ruta: `/`, `/home`, `/tasks/1` (o cualquier id existente), `/create`, `/edit/1`
+   y una ruta inválida como `/ruta-no-existe` para ver el 404.
+3. Detalle de una tarea (`/tasks/:id`) con los botones "Editar" y "Volver" funcionando.
+4. Formulario de creación: inserta 2 tareas nuevas y verifica que aparezcan en el listado.
+5. Formulario de edición: edita una de las tareas creadas y verifica el cambio en el listado.
+6. Eliminación: borra 2 tareas (una por una), mostrando el cuadro de confirmación antes
+   de cada eliminación y el listado actualizado sin recargar la página.

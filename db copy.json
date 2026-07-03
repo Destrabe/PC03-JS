@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Diseñar base de datos",
+      "description": "Modelar las tablas principales del sistema en PostgreSQL.",
+      "status": "done"
+    },
+    {
+      "id": "2",
+      "title": "Configurar autenticación JWT",
+      "description": "Implementar login y validación de tokens en el backend.",
+      "status": "pending"
+    },
+    {
+      "id": "3",
+      "title": "Maquetar vista de listado",
+      "description": "Crear la interfaz de React que muestra todas las tareas.",
+      "status": "pending"
+    }
+  ]
+}
