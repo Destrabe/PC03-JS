@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { Task, TaskInput } from "../models/Task";
+import type { Task, TaskInput } from "../model/Task";
 
 const API_URL = "http://localhost:3001/tasks";
 
@@ -18,7 +18,10 @@ export const createTask = async (task: TaskInput): Promise<Task> => {
   return response.data;
 };
 
-export const updateTask = async (id: string, task: TaskInput): Promise<Task> => {
+export const updateTask = async (
+  id: string,
+  task: TaskInput,
+): Promise<Task> => {
   const response = await axios.put<Task>(`${API_URL}/${id}`, task);
   return response.data;
 };
