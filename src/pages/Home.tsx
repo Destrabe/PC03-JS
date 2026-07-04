@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import TaskList from "../components/TaskList";
 import { deleteTask, getTasks } from "../services/taskService";
-import type { Task } from "../models/Task";
+import type { Task } from "../model/Task";
 import "./Home.css";
 
 function Home() {
@@ -17,7 +17,9 @@ function Home() {
       setError(null);
     } catch (err) {
       console.error(err);
-      setError("No se pudieron cargar las tareas. Verifica que json-server esté activo.");
+      setError(
+        "No se pudieron cargar las tareas. Verifica que json-server esté activo.",
+      );
     } finally {
       setLoading(false);
     }
@@ -28,7 +30,9 @@ function Home() {
   }, []);
 
   const handleDelete = async (id: string) => {
-    const confirmed = window.confirm("¿Seguro que deseas eliminar esta tarea? Esta acción no se puede deshacer.");
+    const confirmed = window.confirm(
+      "¿Seguro que deseas eliminar esta tarea? Esta acción no se puede deshacer.",
+    );
     if (!confirmed) return;
 
     try {

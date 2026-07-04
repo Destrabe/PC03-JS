@@ -1,24 +1,23 @@
 # Gestor de Tareas — React + TypeScript + json-server
 
-## Estructura 
+## Estructura
 
 src/
-  models/
-    Task.ts          -> interfaz Task y TaskInput
-  services/
-    taskService.ts    -> getTasks, getTaskById, createTask, updateTask, deleteTask (axios)
-  components/
-    Menu.tsx / .css   -> navegación, incrustado en App.tsx
-    TaskList.tsx / .css -> tabla de tareas (listado), usada en Home
-  pages/
-    Home.tsx / .css      -> ruta "/" y "/home"
-    TaskDetail.tsx / .css -> ruta "/tasks/:id"
-    TaskForm.tsx / .css   -> rutas "/create" y "/edit/:id"
-    Error404.tsx / .css   -> ruta comodín "*"
-  App.tsx / .css     -> configuración de rutas (React Router v7) + Menu
-  main.tsx           -> entry point
-db.json              -> datos simulados para json-server (colección "tasks")
-
+model/
+Task.ts -> interfaz Task y TaskInput
+services/
+taskService.ts -> getTasks, getTaskById, createTask, updateTask, deleteTask (axios)
+components/
+Menu.tsx / .css -> navegación, incrustado en App.tsx
+TaskList.tsx / .css -> tabla de tareas (listado), usada en Home
+pages/
+Home.tsx / .css -> ruta "/" y "/home"
+TaskDetail.tsx / .css -> ruta "/tasks/:id"
+TaskForm.tsx / .css -> rutas "/create" y "/edit/:id"
+Error404.tsx / .css -> ruta comodín "\*"
+App.tsx / .css -> configuración de rutas (React Router v7) + Menu
+main.tsx -> entry point
+db.json -> datos simulados para json-server (colección "tasks")
 
 ## Requisitos
 
@@ -29,7 +28,7 @@ db.json              -> datos simulados para json-server (colección "tasks")
 
 npm install
 
-## Ejecutar el proyecto 
+## Ejecutar el proyecto
 
 Este comando levanta json-server (puerto 3001) y Vite (puerto 5173) al mismo tiempo:
 
@@ -37,24 +36,22 @@ npm start
 
 O por separado, en dos terminales:
 
-npm run server   # json-server --watch db.json --port 3001
-npm run dev      # vite (http://localhost:5173)
-
+npm run server # json-server --watch db.json --port 3001
+npm run dev # vite (http://localhost:5173)
 
 ## Rutas de la aplicación (ENDPOINTSSS)
 
-| Ruta          | Componente  | Descripción                          |
-|---------------|-------------|---------------------------------------|
-| `/`, `/home`  | Home        | Listado de tareas                     |
-| `/tasks/:id`  | TaskDetail  | Detalle de una tarea                  |
-| `/create`     | TaskForm    | Crear nueva tarea                     |
-| `/edit/:id`   | TaskForm    | Editar tarea existente                |
-| `*`           | Error404    | Cualquier ruta no reconocida          |
+| Ruta         | Componente | Descripción                  |
+| ------------ | ---------- | ---------------------------- |
+| `/`, `/home` | Home       | Listado de tareas            |
+| `/tasks/:id` | TaskDetail | Detalle de una tarea         |
+| `/create`    | TaskForm   | Crear nueva tarea            |
+| `/edit/:id`  | TaskForm   | Editar tarea existente       |
+| `*`          | Error404   | Cualquier ruta no reconocida |
 
 ## Endpoint de la API en local
 
 `http://localhost:3001/tasks` (GET, GET/:id, POST, PUT/:id, DELETE/:id)
-
 
 Para completar las evidencias que piden las consideraciones del enunciado, ejecuta
 `npm start`, abre `http://localhost:5173` y toma capturas de:

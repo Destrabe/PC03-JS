@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import type { Task } from "../models/Task";
+import type { Task } from "../model/Task";
 import "./TaskList.css";
 
 interface TaskListProps {
@@ -26,7 +26,9 @@ function TaskList({ tasks, onDelete }: TaskListProps) {
           <tr key={task.id}>
             <td>{task.title}</td>
             <td>
-              <span className={`badge ${task.status === "done" ? "badge-done" : "badge-pending"}`}>
+              <span
+                className={`badge ${task.status === "done" ? "badge-done" : "badge-pending"}`}
+              >
                 {task.status === "done" ? "Completada" : "Pendiente"}
               </span>
             </td>
@@ -37,7 +39,10 @@ function TaskList({ tasks, onDelete }: TaskListProps) {
               <Link className="btn btn-edit" to={`/edit/${task.id}`}>
                 Editar
               </Link>
-              <button className="btn btn-delete" onClick={() => onDelete(task.id)}>
+              <button
+                className="btn btn-delete"
+                onClick={() => onDelete(task.id)}
+              >
                 Eliminar
               </button>
             </td>

@@ -1,7 +1,7 @@
 import { type FormEvent, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { createTask, getTaskById, updateTask } from "../services/taskService";
-import type { TaskInput, TaskStatus } from "../models/Task";
+import type { TaskInput, TaskStatus } from "../model/Task";
 import "./TaskForm.css";
 
 interface FormErrors {
@@ -63,15 +63,19 @@ function TaskForm() {
     return newErrors;
   };
 
-  const handleChange = (
-    field: keyof TaskInput
-  ) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const value = e.target.value;
-    setForm((prev) => ({
-      ...prev,
-      [field]: field === "status" ? (value as TaskStatus) : value,
-    }));
-  };
+  const handleChange =
+    (field: keyof TaskInput) =>
+    (
+      e: React.ChangeEvent<
+        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      >,
+    ) => {
+      const value = e.target.value;
+      setForm((prev) => ({
+        ...prev,
+        [field]: field === "status" ? (value as TaskStatus) : value,
+      }));
+    };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -134,22 +138,40 @@ function TaskForm() {
             onChange={handleChange("description")}
             className={errors.description ? "input-error" : ""}
           />
-          {errors.description && <span className="field-error">{errors.description}</span>}
+          {errors.description && (
+            <span className="field-error">{errors.description}</span>
+          )}
         </div>
 
         <div className="form-group">
           <label htmlFor="status">Estado</label>
-          <select id="status" value={form.status} onChange={handleChange("status")}>
+          <select
+            id="status"
+            value={form.status}
+            onChange={handleChange("status")}
+          >
             <option value="pending">Pendiente</option>
             <option value="done">Completada</option>
           </select>
         </div>
 
         <div className="form-actions">
-          <button type="submit" className="btn btn-submit" disabled={submitting}>
-            {submitting ? "Guardando..." : isEditMode ? "Guardar cambios" : "Crear tarea"}
+          <button
+            type="submit"
+            className="btn btn-submit"
+            disabled={submitting}
+          >
+            {submitting
+              ? "Guardando..."
+              : isEditMode
+                ? "Guardar cambios"
+                : "Crear tarea"}
           </button>
-          <button type="button" className="btn btn-cancel" onClick={() => navigate("/")}>
+          <button
+            type="button"
+            className="btn btn-cancel"
+            onClick={() => navigate("/")}
+          >
             Cancelar
           </button>
         </div>

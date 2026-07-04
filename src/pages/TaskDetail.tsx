@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getTaskById } from "../services/taskService";
-import type { Task } from "../models/Task";
+import type { Task } from "../model/Task";
 import "./TaskDetail.css";
 
 function TaskDetail() {
@@ -50,7 +50,9 @@ function TaskDetail() {
         </div>
         <div className="detail-row">
           <span className="detail-label">Estado</span>
-          <span className={`badge ${task.status === "done" ? "badge-done" : "badge-pending"}`}>
+          <span
+            className={`badge ${task.status === "done" ? "badge-done" : "badge-pending"}`}
+          >
             {task.status === "done" ? "Completada" : "Pendiente"}
           </span>
         </div>
